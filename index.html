@@ -13,14 +13,10 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<style>
 
-/* =====================================================
-   GLOBAL
-===================================================== */
+<style>
 
 *{
     margin:0;
@@ -42,9 +38,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    BACKGROUND
-===================================================== */
+========================= */
 
 .background{
     position:fixed;
@@ -58,12 +54,14 @@ body{
     background-repeat:no-repeat;
 
     transform:scale(1.08);
+
     opacity:1;
 
     transition:
         opacity 1.5s ease-in-out,
         transform 6s ease-in-out;
 }
+
 
 .overlay{
     position:fixed;
@@ -78,13 +76,14 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    CLICK TO ENTER
-===================================================== */
+========================= */
 
 #enter-screen{
     position:fixed;
     inset:0;
+
     width:100%;
     height:100%;
 
@@ -93,7 +92,7 @@ body{
             rgba(0,0,0,.15),
             rgba(0,0,0,.15)
         ),
-        url('./background.jpg')
+        url('background.jpg')
         center center / cover no-repeat;
 
     display:flex;
@@ -101,6 +100,7 @@ body{
     align-items:center;
 
     z-index:9999;
+
     cursor:pointer;
 
     transition:
@@ -108,8 +108,10 @@ body{
         visibility 1s ease;
 }
 
+
 #enter-screen h1{
     font-size:3rem;
+
     color:#FFD700;
 
     text-shadow:
@@ -117,9 +119,12 @@ body{
         0 0 12px rgba(255,215,0,.35);
 
     animation:pulse 2s infinite;
+
     text-align:center;
+
     user-select:none;
 }
+
 
 #enter-screen h1:hover{
     color:#FFE766;
@@ -129,6 +134,7 @@ body{
         0 0 15px rgba(255,215,0,.4);
 }
 
+
 @keyframes pulse{
     50%{
         transform:scale(1.08);
@@ -136,9 +142,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    PROFILE
-===================================================== */
+========================= */
 
 .profile{
     width:100%;
@@ -152,9 +158,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    CARD
-===================================================== */
+========================= */
 
 .card{
     position:relative;
@@ -182,9 +188,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    CARD WAVE BORDER
-===================================================== */
+========================= */
 
 .card::before{
     content:"";
@@ -242,6 +248,7 @@ body{
         );
 }
 
+
 @keyframes borderWave{
     0%{
         background-position:0% 50%;
@@ -253,9 +260,9 @@ body{
 }
 
 
-/* =====================================================
-   AVATAR
-===================================================== */
+/* =========================
+   PROFILE IMAGE
+========================= */
 
 .avatar{
     display:block;
@@ -273,14 +280,16 @@ body{
 
     cursor:pointer;
 
-    background:rgba(0,0,0,.2);
-
     box-shadow:
         0 0 8px rgba(255,215,0,.6),
         0 0 18px rgba(255,215,0,.35);
 
     transition:.4s;
+
+    position:relative;
+    z-index:20;
 }
+
 
 .avatar:hover{
     transform:scale(1.05);
@@ -291,9 +300,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    IMAGE MODAL
-===================================================== */
+========================= */
 
 .image-modal{
     position:fixed;
@@ -305,7 +314,6 @@ body{
     background:rgba(0,0,0,.78);
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
@@ -324,15 +332,15 @@ body{
     padding:20px;
 }
 
+
 .image-modal.active{
     opacity:1;
     visibility:visible;
     pointer-events:auto;
 }
 
-.image-modal img{
-    display:block;
 
+.image-modal img{
     max-width:85vw;
     max-height:85vh;
 
@@ -354,14 +362,15 @@ body{
     transition:transform .35s ease;
 }
 
+
 .image-modal.active img{
     transform:scale(1);
 }
 
 
-/* =====================================================
+/* =========================
    NAME
-===================================================== */
+========================= */
 
 .name{
     margin-top:20px;
@@ -377,9 +386,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    BIO
-===================================================== */
+========================= */
 
 .bio{
     margin-top:10px;
@@ -391,23 +400,24 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    LOCATION
-===================================================== */
+========================= */
 
 .location{
     margin-top:10px;
 
     color:#FFD700;
+
     font-size:16px;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
     gap:7px;
 }
+
 
 .location i{
     font-size:15px;
@@ -415,20 +425,20 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    SOCIALS
-===================================================== */
+========================= */
 
 .socials{
     margin-top:30px;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
     gap:20px;
 }
+
 
 .socials a{
     width:55px;
@@ -441,7 +451,6 @@ body{
     border:1px solid rgba(255,215,0,.25);
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
@@ -454,6 +463,7 @@ body{
     transition:.3s;
 }
 
+
 .socials a:hover{
     transform:translateY(-5px) scale(1.1);
 
@@ -465,9 +475,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    VIEWS
-===================================================== */
+========================= */
 
 .views{
     margin-top:25px;
@@ -477,15 +487,16 @@ body{
     color:#aaa;
 }
 
+
 #profile-views{
     color:#FFD700;
     font-weight:600;
 }
 
 
-/* =====================================================
+/* =========================
    VOLUME CONTROL
-===================================================== */
+========================= */
 
 .volume-control{
     position:fixed;
@@ -499,17 +510,16 @@ body{
     z-index:5000;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 }
+
 
 #volume-icon{
     width:45px;
     height:45px;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
@@ -530,9 +540,9 @@ body{
     transition:.3s;
 
     position:relative;
-
     z-index:2;
 }
+
 
 #volume-icon:hover{
     background:rgba(255,215,0,.15);
@@ -541,10 +551,6 @@ body{
         0 0 12px rgba(255,215,0,.5);
 }
 
-
-/* =====================================================
-   VOLUME SLIDER
-===================================================== */
 
 .volume-slider-box{
     position:absolute;
@@ -560,7 +566,6 @@ body{
         translateY(12px);
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
@@ -582,6 +587,7 @@ body{
         visibility .25s ease;
 }
 
+
 .volume-control:hover .volume-slider-box{
     opacity:1;
     visibility:visible;
@@ -591,6 +597,7 @@ body{
         translateX(-50%)
         translateY(0);
 }
+
 
 #volume-slider{
     width:100px;
@@ -604,9 +611,9 @@ body{
 }
 
 
-/* =====================================================
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
 @media(max-width:600px){
 
@@ -661,9 +668,9 @@ body{
 <body>
 
 
-<!-- =====================================================
+<!-- =========================
      BACKGROUND
-===================================================== -->
+========================= -->
 
 <div
     class="background"
@@ -673,9 +680,9 @@ body{
 <div class="overlay"></div>
 
 
-<!-- =====================================================
+<!-- =========================
      CLICK TO ENTER
-===================================================== -->
+========================= -->
 
 <div id="enter-screen">
 
@@ -684,9 +691,9 @@ body{
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      MUSIC
-===================================================== -->
+========================= -->
 
 <audio
     id="bg-music"
@@ -700,40 +707,33 @@ body{
 </audio>
 
 
-<!-- =====================================================
+<!-- =========================
      PROFILE
-===================================================== -->
+========================= -->
 
 <div class="profile">
 
     <div class="card">
 
-
         <!-- PROFILE IMAGE -->
 
         <img
-            src="./avatar.png"
+            src="avatar.png"
             class="avatar"
             id="profile-image"
             alt="Tonmoy Hasan Jihad"
         >
 
 
-        <!-- NAME -->
-
         <div class="name">
             Tonmoy Hasan Jihad
         </div>
 
 
-        <!-- BIO -->
-
         <div class="bio">
             🎓 Student • 🎥 Digital Creator
         </div>
 
-
-        <!-- LOCATION -->
 
         <div class="location">
 
@@ -746,20 +746,19 @@ body{
         </div>
 
 
-        <!-- SOCIALS -->
+        <!-- =========================
+             SOCIAL LINKS
+        ========================= -->
 
         <div class="socials">
 
-
-            <!-- DISCORD -->
+            <!-- PHONE -->
 
             <a
-                href="https://discord.gg/YOUR_INVITE"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Discord">
+                href="tel:+8801921454819"
+                title="Phone">
 
-                <i class="fab fa-discord"></i>
+                <i class="fas fa-phone"></i>
 
             </a>
 
@@ -777,15 +776,15 @@ body{
             </a>
 
 
-            <!-- INSTAGRAM -->
+            <!-- FACEBOOK -->
 
             <a
-                href="https://instagram.com/YOUR_INSTAGRAM"
+                href="https://facebook.com/YOUR_FACEBOOK"
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Instagram">
+                title="Facebook">
 
-                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
 
             </a>
 
@@ -820,25 +819,25 @@ body{
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      IMAGE EXPAND
-===================================================== -->
+========================= -->
 
 <div
     class="image-modal"
     id="image-modal">
 
     <img
-        src="./avatar.png"
+        src="avatar.png"
         id="expanded-image"
         alt="Expanded Profile Image">
 
 </div>
 
 
-<!-- =====================================================
+<!-- =========================
      VOLUME CONTROL
-===================================================== -->
+========================= -->
 
 <div class="volume-control">
 
@@ -864,7 +863,6 @@ body{
 
 <script>
 
-
 /* =====================================================
    SUPABASE CONFIG
 ===================================================== */
@@ -889,10 +887,10 @@ const supabaseClient =
 
 const backgrounds = [
 
-    "./background.jpg",
-    "./background1.jpg",
-    "./background2.jpg",
-    "./background3.jpg"
+    "background.jpg",
+    "background1.jpg",
+    "background2.jpg",
+    "background3.jpg"
 
 ];
 
@@ -912,9 +910,11 @@ setInterval(() => {
 
     background.style.opacity = "0";
 
+
     setTimeout(() => {
 
         currentBackground++;
+
 
         if(
             currentBackground >=
@@ -933,6 +933,7 @@ setInterval(() => {
         background.style.opacity = "1";
 
     },1000);
+
 
 },6000);
 
@@ -978,6 +979,7 @@ enter.addEventListener(
 
             lastVolume =
                 music.volume;
+
 
             await music.play();
 
@@ -1079,9 +1081,11 @@ volumeIcon.addEventListener(
             lastVolume =
                 music.volume;
 
+
             music.volume = 0;
 
             volumeSlider.value = 0;
+
 
             updateVolumeIcon(0);
 
@@ -1095,13 +1099,16 @@ volumeIcon.addEventListener(
 
             }
 
+
             music.volume =
                 lastVolume;
+
 
             volumeSlider.value =
                 Math.round(
                     lastVolume * 100
                 );
+
 
             updateVolumeIcon(
                 lastVolume
