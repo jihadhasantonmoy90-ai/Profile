@@ -13,7 +13,15 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
 <style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
 
 *{
     margin:0;
@@ -35,13 +43,15 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    BACKGROUND
-========================= */
+===================================================== */
 
 .background{
+
     position:fixed;
     inset:0;
+
     width:100%;
     height:100%;
 
@@ -62,6 +72,7 @@ body{
 
 
 .overlay{
+
     position:fixed;
     inset:0;
 
@@ -76,9 +87,9 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    CLICK TO ENTER
-========================= */
+===================================================== */
 
 #enter-screen{
 
@@ -125,12 +136,6 @@ body{
 
     text-align:center;
 
-    background:transparent;
-
-    padding:0;
-
-    border:none;
-
     user-select:none;
 }
 
@@ -154,9 +159,9 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    PROFILE
-========================= */
+===================================================== */
 
 .profile{
 
@@ -172,9 +177,9 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    CARD
-========================= */
+===================================================== */
 
 .card{
 
@@ -205,9 +210,9 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    FULL CARD WAVE BORDER
-========================= */
+===================================================== */
 
 .card::before{
 
@@ -284,9 +289,9 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    AVATAR
-========================= */
+===================================================== */
 
 .avatar{
 
@@ -319,9 +324,9 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    IMAGE MODAL
-========================= */
+===================================================== */
 
 .image-modal{
 
@@ -391,13 +396,14 @@ body{
 
 
 .image-modal.active img{
+
     transform:scale(1);
 }
 
 
-/* =========================
+/* =====================================================
    NAME
-========================= */
+===================================================== */
 
 .name{
 
@@ -415,9 +421,9 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    BIO
-========================= */
+===================================================== */
 
 .bio{
 
@@ -431,9 +437,9 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    LOCATION
-========================= */
+===================================================== */
 
 .location{
 
@@ -454,14 +460,16 @@ body{
 
 
 .location i{
+
     font-size:15px;
+
     color:#FFD700;
 }
 
 
-/* =========================
+/* =====================================================
    SOCIALS
-========================= */
+===================================================== */
 
 .socials{
 
@@ -515,9 +523,9 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    VIEWS
-========================= */
+===================================================== */
 
 .views{
 
@@ -529,9 +537,17 @@ body{
 }
 
 
-/* =========================
+#profile-views{
+
+    color:#FFD700;
+
+    font-weight:600;
+}
+
+
+/* =====================================================
    VOLUME CONTROL
-========================= */
+===================================================== */
 
 .volume-control{
 
@@ -592,6 +608,10 @@ body{
         0 0 12px rgba(255,215,0,.5);
 }
 
+
+/* =====================================================
+   VOLUME SLIDER
+===================================================== */
 
 .volume-slider-box{
 
@@ -662,9 +682,9 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:600px){
 
@@ -686,29 +706,36 @@ body{
     }
 
     .avatar{
+
         width:120px;
         height:120px;
     }
 
     .name{
+
         font-size:30px;
     }
 
     .bio{
+
         font-size:15px;
     }
 
     .socials{
+
         gap:12px;
     }
 
     .socials a{
+
         width:48px;
         height:48px;
+
         font-size:21px;
     }
 
     .volume-control{
+
         right:15px;
         bottom:15px;
     }
@@ -723,7 +750,9 @@ body{
 <body>
 
 
-<!-- BACKGROUND -->
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
 <div
     class="background"
@@ -733,7 +762,9 @@ body{
 <div class="overlay"></div>
 
 
-<!-- CLICK TO ENTER -->
+<!-- =====================================================
+     CLICK TO ENTER
+===================================================== -->
 
 <div id="enter-screen">
 
@@ -742,7 +773,9 @@ body{
 </div>
 
 
-<!-- MUSIC -->
+<!-- =====================================================
+     MUSIC
+===================================================== -->
 
 <audio
     id="bg-music"
@@ -756,7 +789,9 @@ body{
 </audio>
 
 
-<!-- PROFILE -->
+<!-- =====================================================
+     PROFILE
+===================================================== -->
 
 <div class="profile">
 
@@ -842,6 +877,7 @@ body{
         <div class="views">
 
             👁 Profile Views:
+
             <span id="profile-views">
                 Loading...
             </span>
@@ -853,7 +889,9 @@ body{
 </div>
 
 
-<!-- IMAGE EXPAND -->
+<!-- =====================================================
+     IMAGE EXPAND
+===================================================== -->
 
 <div
     class="image-modal"
@@ -867,7 +905,9 @@ body{
 </div>
 
 
-<!-- VOLUME CONTROL -->
+<!-- =====================================================
+     VOLUME CONTROL
+===================================================== -->
 
 <div class="volume-control">
 
@@ -893,10 +933,27 @@ body{
 
 <script>
 
+/* =====================================================
+   SUPABASE CONFIG
+===================================================== */
 
-/* =========================
+const SUPABASE_URL =
+    "https://qzdspslgezxaccbmhgse.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_L5tcFgbXjuYP95Spl8VKiA_RTUV40XO";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+/* =====================================================
    BACKGROUND SLIDESHOW
-========================= */
+===================================================== */
 
 const backgrounds = [
 
@@ -907,10 +964,13 @@ const backgrounds = [
 
 ];
 
+
 const background =
     document.getElementById("background");
 
+
 let currentBackground = 0;
+
 
 background.style.backgroundImage =
     `url("${backgrounds[0]}")`;
@@ -933,8 +993,10 @@ setInterval(() => {
 
         }
 
+
         background.style.backgroundImage =
             `url("${backgrounds[currentBackground]}")`;
+
 
         background.style.opacity = "1";
 
@@ -943,77 +1005,92 @@ setInterval(() => {
 },6000);
 
 
-/* =========================
+/* =====================================================
    MUSIC
-========================= */
+===================================================== */
 
 const enter =
     document.getElementById("enter-screen");
 
+
 const music =
     document.getElementById("bg-music");
+
 
 const volumeSlider =
     document.getElementById("volume-slider");
 
+
 const volumeIcon =
     document.getElementById("volume-icon");
 
+
 let lastVolume = 0.5;
+
 
 music.volume = lastVolume;
 
 
-/* =========================
-   ENTER
-========================= */
+/* =====================================================
+   CLICK TO ENTER
+===================================================== */
 
-enter.addEventListener("click", async () => {
+enter.addEventListener(
+    "click",
+    async function(){
 
-    try{
+        try{
 
-        music.volume =
-            Number(volumeSlider.value) / 100;
+            music.volume =
+                Number(volumeSlider.value) / 100;
 
-        lastVolume =
-            music.volume;
+            lastVolume =
+                music.volume;
 
-        await music.play();
 
-    }catch(error){
+            await music.play();
 
-        console.log(
-            "Music playback error:",
-            error
-        );
+        }
+
+        catch(error){
+
+            console.error(
+                "Music playback error:",
+                error
+            );
+
+        }
+
+
+        enter.style.opacity = "0";
+
+        enter.style.visibility = "hidden";
+
+
+        setTimeout(() => {
+
+            enter.style.display = "none";
+
+        },1000);
 
     }
-
-    enter.style.opacity = "0";
-
-    enter.style.visibility = "hidden";
-
-    setTimeout(() => {
-
-        enter.style.display = "none";
-
-    },1000);
-
-});
+);
 
 
-/* =========================
-   VOLUME
-========================= */
+/* =====================================================
+   VOLUME SLIDER
+===================================================== */
 
 volumeSlider.addEventListener(
     "input",
-    () => {
+    function(){
 
         const volume =
-            Number(volumeSlider.value) / 100;
+            Number(this.value) / 100;
+
 
         music.volume = volume;
+
 
         if(volume > 0){
 
@@ -1021,11 +1098,16 @@ volumeSlider.addEventListener(
 
         }
 
+
         updateVolumeIcon(volume);
 
     }
 );
 
+
+/* =====================================================
+   VOLUME ICON
+===================================================== */
 
 function updateVolumeIcon(volume){
 
@@ -1053,22 +1135,24 @@ function updateVolumeIcon(volume){
 }
 
 
-/* =========================
+/* =====================================================
    MUTE / UNMUTE
-========================= */
+===================================================== */
 
 volumeIcon.addEventListener(
     "click",
-    () => {
+    function(){
 
         if(music.volume > 0){
 
             lastVolume =
                 music.volume;
 
+
             music.volume = 0;
 
             volumeSlider.value = 0;
+
 
             updateVolumeIcon(0);
 
@@ -1082,13 +1166,16 @@ volumeIcon.addEventListener(
 
             }
 
+
             music.volume =
                 lastVolume;
+
 
             volumeSlider.value =
                 Math.round(
                     lastVolume * 100
                 );
+
 
             updateVolumeIcon(
                 lastVolume
@@ -1100,14 +1187,15 @@ volumeIcon.addEventListener(
 );
 
 
-/* =========================
+/* =====================================================
    IMAGE EXPAND
-========================= */
+===================================================== */
 
 const profileImage =
     document.getElementById(
         "profile-image"
     );
+
 
 const imageModal =
     document.getElementById(
@@ -1117,7 +1205,9 @@ const imageModal =
 
 profileImage.addEventListener(
     "click",
-    () => {
+    function(event){
+
+        event.stopPropagation();
 
         imageModal.classList.add(
             "active"
@@ -1129,7 +1219,7 @@ profileImage.addEventListener(
 
 imageModal.addEventListener(
     "click",
-    () => {
+    function(){
 
         imageModal.classList.remove(
             "active"
@@ -1139,13 +1229,13 @@ imageModal.addEventListener(
 );
 
 
-/* =========================
-   ESC
-========================= */
+/* =====================================================
+   ESC TO CLOSE IMAGE
+===================================================== */
 
 document.addEventListener(
     "keydown",
-    (event) => {
+    function(event){
 
         if(event.key === "Escape"){
 
@@ -1159,48 +1249,89 @@ document.addEventListener(
 );
 
 
-/* =========================
-   PROFILE VIEW COUNTER
-========================= */
+/* =====================================================
+   SUPABASE PROFILE VIEW COUNTER
+===================================================== */
 
-fetch("counter.php")
+async function updateProfileViews(){
 
-.then(response => response.json())
-
-.then(data => {
-
-    if(data.success){
-
+    const viewElement =
         document.getElementById(
             "profile-views"
-        ).textContent =
-            Number(data.views)
-            .toLocaleString();
+        );
+
+
+    try{
+
+        const {
+            data,
+            error
+        } =
+        await supabaseClient.rpc(
+            "increment_profile_views"
+        );
+
+
+        if(error){
+
+            console.error(
+                "Supabase View Counter Error:",
+                error
+            );
+
+            viewElement.textContent =
+                "0";
+
+            return;
+
+        }
+
+
+        /*
+           Supabase may return bigint
+           as a string.
+        */
+
+        const views =
+            Number(data);
+
+
+        if(Number.isFinite(views)){
+
+            viewElement.textContent =
+                views.toLocaleString();
+
+        }
+
+        else{
+
+            viewElement.textContent =
+                "0";
+
+        }
 
     }
 
-    else{
+    catch(error){
 
-        document.getElementById(
-            "profile-views"
-        ).textContent = "0";
+        console.error(
+            "View counter error:",
+            error
+        );
+
+        viewElement.textContent =
+            "0";
 
     }
 
-})
+}
 
-.catch(error => {
 
-    console.log(
-        "View counter error:",
-        error
-    );
+/* =====================================================
+   START VIEW COUNTER
+===================================================== */
 
-    document.getElementById(
-        "profile-views"
-    ).textContent = "0";
-
-});
+updateProfileViews();
 
 
 </script>
