@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tonmoy Hasan Jihad</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Onest',sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    overflow:hidden;
+    background:#000;
+    color:#FFD700;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+
+    z-index:-2;
+
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+
+    transform:scale(1.08);
+
+    opacity:1;
+
+    transition:
+        opacity 1.5s ease-in-out,
+        transform 6s ease-in-out;
+}
+
+
+.overlay{
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.22);
+
+    z-index:-1;
+
+    pointer-events:none;
+}
+
+
+/* =========================
+   CLICK TO ENTER
+========================= */
+
+#enter-screen{
+
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.15)
+        ),
+        url('background.jpg')
+        center center / cover no-repeat;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+
+    cursor:pointer;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+#enter-screen h1{
+
+    font-size:3rem;
+
+    color:#FFD700;
+
+    text-shadow:
+        0 0 5px rgba(255,215,0,.55),
+        0 0 12px rgba(255,215,0,.35);
+
+    animation:pulse 2s infinite;
+
+    text-align:center;
+
+    background:transparent;
+
+    padding:0;
+
+    border:none;
+
+    user-select:none;
+}
+
+
+#enter-screen h1:hover{
+
+    color:#FFE766;
+
+    text-shadow:
+        0 0 7px rgba(255,215,0,.6),
+        0 0 15px rgba(255,215,0,.4);
+}
+
+
+@keyframes pulse{
+
+    50%{
+        transform:scale(1.08);
+    }
+
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+    position:relative;
+
+    width:500px;
+    max-width:95vw;
+
+    padding:40px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.07);
+
+    border:none;
+
+    border-radius:25px;
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 0 25px rgba(255,215,0,.08),
+        inset 0 0 30px rgba(255,255,255,.03);
+
+    isolation:isolate;
+}
+
+
+/* =========================
+   FULL CARD WAVE BORDER
+========================= */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    padding:2px;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            transparent 0%,
+            #FFD700 8%,
+            transparent 16%,
+
+            #FFD700 24%,
+            transparent 32%,
+
+            #FFD700 40%,
+            transparent 48%,
+
+            #FFD700 56%,
+            transparent 64%,
+
+            #FFD700 72%,
+            transparent 80%,
+
+            #FFD700 88%,
+            transparent 100%
+        );
+
+    background-size:200% 100%;
+
+    animation:
+        borderWave
+        2s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+    pointer-events:none;
+
+    z-index:10;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(255,215,0,.55)
+        );
+}
+
+
+@keyframes borderWave{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    100%{
+        background-position:200% 50%;
+    }
+
+}
+
+
+/* =========================
+   AVATAR
+========================= */
+
+.avatar{
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    border:3px solid #FFD700;
+
+    object-fit:cover;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 8px rgba(255,215,0,.6),
+        0 0 18px rgba(255,215,0,.35);
+
+    transition:.4s;
+}
+
+
+.avatar:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+        0 0 12px rgba(255,215,0,.7),
+        0 0 25px rgba(255,215,0,.4);
+}
+
+
+/* =========================
+   IMAGE MODAL
+========================= */
+
+.image-modal{
+
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.78);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:10000;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+
+    cursor:pointer;
+
+    padding:20px;
+}
+
+
+.image-modal.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+}
+
+
+.image-modal img{
+
+    max-width:85vw;
+    max-height:85vh;
+
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:15px;
+
+    border:2px solid #FFD700;
+
+    box-shadow:
+        0 0 15px rgba(255,215,0,.45),
+        0 0 35px rgba(255,215,0,.20);
+
+    transform:scale(.65);
+
+    transition:transform .35s ease;
+}
+
+
+.image-modal.active img{
+    transform:scale(1);
+}
+
+
+/* =========================
+   NAME
+========================= */
+
+.name{
+
+    margin-top:20px;
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#FFD700;
+
+    text-shadow:
+        0 0 5px rgba(255,215,0,.5),
+        0 0 12px rgba(255,215,0,.3);
+}
+
+
+/* =========================
+   BIO
+========================= */
+
+.bio{
+
+    margin-top:10px;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+    color:#eee;
+}
+
+
+/* =========================
+   LOCATION
+========================= */
+
+.location{
+
+    margin-top:10px;
+
+    color:#FFD700;
+
+    font-size:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:7px;
+}
+
+
+.location i{
+    font-size:15px;
+    color:#FFD700;
+}
+
+
+/* =========================
+   SOCIALS
+========================= */
+
+.socials{
+
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+
+.socials a{
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    background:rgba(255,215,0,.10);
+
+    border:1px solid rgba(255,215,0,.25);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:25px;
+
+    text-decoration:none;
+
+    color:#FFD700;
+
+    transition:.3s;
+}
+
+
+.socials a:hover{
+
+    transform:translateY(-5px) scale(1.1);
+
+    box-shadow:
+        0 0 12px rgba(255,215,0,.7),
+        0 0 25px rgba(255,215,0,.35);
+
+    background:rgba(255,215,0,.18);
+}
+
+
+/* =========================
+   VIEWS
+========================= */
+
+.views{
+
+    margin-top:25px;
+
+    font-size:14px;
+
+    color:#aaa;
+}
+
+
+/* =========================
+   VOLUME CONTROL
+========================= */
+
+.volume-control{
+
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:50px;
+    height:50px;
+
+    z-index:5000;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+}
+
+
+#volume-icon{
+
+    width:45px;
+    height:45px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    color:#FFD700;
+
+    font-size:18px;
+
+    background:rgba(0,0,0,.55);
+
+    border:1px solid rgba(255,215,0,.35);
+
+    border-radius:50%;
+
+    backdrop-filter:blur(8px);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+#volume-icon:hover{
+
+    background:rgba(255,215,0,.15);
+
+    box-shadow:
+        0 0 12px rgba(255,215,0,.5);
+}
+
+
+.volume-slider-box{
+
+    position:absolute;
+
+    bottom:52px;
+
+    left:50%;
+
+    width:45px;
+    height:125px;
+
+    transform:
+        translateX(-50%)
+        translateY(12px);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.60);
+
+    border:1px solid rgba(255,215,0,.30);
+
+    border-radius:15px;
+
+    backdrop-filter:blur(10px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
+}
+
+
+.volume-control:hover .volume-slider-box{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+#volume-slider{
+
+    width:100px;
+
+    height:5px;
+
+    cursor:pointer;
+
+    accent-color:#FFD700;
+
+    transform:rotate(-90deg);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    #enter-screen h1{
+        font-size:2rem;
+    }
+
+    .card{
+
+        width:100%;
+
+        padding:30px 20px;
+
+        border-radius:20px;
+    }
+
+    .card::before{
+        border-radius:20px;
+    }
+
+    .avatar{
+        width:120px;
+        height:120px;
+    }
+
+    .name{
+        font-size:30px;
+    }
+
+    .bio{
+        font-size:15px;
+    }
+
+    .socials{
+        gap:12px;
+    }
+
+    .socials a{
+        width:48px;
+        height:48px;
+        font-size:21px;
+    }
+
+    .volume-control{
+        right:15px;
+        bottom:15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div
+    class="background"
+    id="background">
+</div>
+
+<div class="overlay"></div>
+
+
+<!-- CLICK TO ENTER -->
+
+<div id="enter-screen">
+
+    <h1>Click To Enter....</h1>
+
+</div>
+
+
+<!-- MUSIC -->
+
+<audio
+    id="bg-music"
+    preload="auto"
+    loop>
+
+    <source
+        src="./song.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<!-- PROFILE -->
+
+<div class="profile">
+
+    <div class="card">
+
+        <img
+            src="avatar.jpg"
+            class="avatar"
+            id="profile-image"
+            alt="Tonmoy Hasan Jihad"
+        >
+
+
+        <div class="name">
+            Tonmoy Hasan Jihad
+        </div>
+
+
+        <div class="bio">
+            🎓 Student • 🎥 Digital Creator
+        </div>
+
+
+        <div class="location">
+
+            <i class="fas fa-location-dot"></i>
+
+            <span>
+                Dhaka, Bangladesh
+            </span>
+
+        </div>
+
+
+        <div class="socials">
+
+            <a
+                href="https://discord.gg/YOUR_INVITE"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Discord">
+
+                <i class="fab fa-discord"></i>
+
+            </a>
+
+
+            <a
+                href="https://facebook.com/YOUR_FACEBOOK"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Facebook">
+
+                <i class="fab fa-facebook-f"></i>
+
+            </a>
+
+
+            <a
+                href="https://instagram.com/YOUR_INSTAGRAM"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Instagram">
+
+                <i class="fab fa-instagram"></i>
+
+            </a>
+
+
+            <a
+                href="mailto:YOURMAIL@gmail.com"
+                title="Email">
+
+                <i class="fas fa-envelope"></i>
+
+            </a>
+
+        </div>
+
+
+        <!-- VIEW COUNTER -->
+
+        <div class="views">
+
+            👁 Profile Views:
+            <span id="profile-views">
+                Loading...
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- IMAGE EXPAND -->
+
+<div
+    class="image-modal"
+    id="image-modal">
+
+    <img
+        src="avatar.jpg"
+        id="expanded-image"
+        alt="Expanded Profile Image">
+
+</div>
+
+
+<!-- VOLUME CONTROL -->
+
+<div class="volume-control">
+
+    <div class="volume-slider-box">
+
+        <input
+            type="range"
+            id="volume-slider"
+            min="0"
+            max="100"
+            value="50">
+
+    </div>
+
+
+    <i
+        id="volume-icon"
+        class="fas fa-volume-high">
+    </i>
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   BACKGROUND SLIDESHOW
+========================= */
+
+const backgrounds = [
+
+    "background.jpg",
+    "background1.jpg",
+    "background2.jpg",
+    "background3.jpg"
+
+];
+
+const background =
+    document.getElementById("background");
+
+let currentBackground = 0;
+
+background.style.backgroundImage =
+    `url("${backgrounds[0]}")`;
+
+
+setInterval(() => {
+
+    background.style.opacity = "0";
+
+    setTimeout(() => {
+
+        currentBackground++;
+
+        if(
+            currentBackground >=
+            backgrounds.length
+        ){
+
+            currentBackground = 0;
+
+        }
+
+        background.style.backgroundImage =
+            `url("${backgrounds[currentBackground]}")`;
+
+        background.style.opacity = "1";
+
+    },1000);
+
+},6000);
+
+
+/* =========================
+   MUSIC
+========================= */
+
+const enter =
+    document.getElementById("enter-screen");
+
+const music =
+    document.getElementById("bg-music");
+
+const volumeSlider =
+    document.getElementById("volume-slider");
+
+const volumeIcon =
+    document.getElementById("volume-icon");
+
+let lastVolume = 0.5;
+
+music.volume = lastVolume;
+
+
+/* =========================
+   ENTER
+========================= */
+
+enter.addEventListener("click", async () => {
+
+    try{
+
+        music.volume =
+            Number(volumeSlider.value) / 100;
+
+        lastVolume =
+            music.volume;
+
+        await music.play();
+
+    }catch(error){
+
+        console.log(
+            "Music playback error:",
+            error
+        );
+
+    }
+
+    enter.style.opacity = "0";
+
+    enter.style.visibility = "hidden";
+
+    setTimeout(() => {
+
+        enter.style.display = "none";
+
+    },1000);
+
+});
+
+
+/* =========================
+   VOLUME
+========================= */
+
+volumeSlider.addEventListener(
+    "input",
+    () => {
+
+        const volume =
+            Number(volumeSlider.value) / 100;
+
+        music.volume = volume;
+
+        if(volume > 0){
+
+            lastVolume = volume;
+
+        }
+
+        updateVolumeIcon(volume);
+
+    }
+);
+
+
+function updateVolumeIcon(volume){
+
+    if(volume === 0){
+
+        volumeIcon.className =
+            "fas fa-volume-xmark";
+
+    }
+
+    else if(volume < 0.5){
+
+        volumeIcon.className =
+            "fas fa-volume-low";
+
+    }
+
+    else{
+
+        volumeIcon.className =
+            "fas fa-volume-high";
+
+    }
+
+}
+
+
+/* =========================
+   MUTE / UNMUTE
+========================= */
+
+volumeIcon.addEventListener(
+    "click",
+    () => {
+
+        if(music.volume > 0){
+
+            lastVolume =
+                music.volume;
+
+            music.volume = 0;
+
+            volumeSlider.value = 0;
+
+            updateVolumeIcon(0);
+
+        }
+
+        else{
+
+            if(lastVolume <= 0){
+
+                lastVolume = 0.5;
+
+            }
+
+            music.volume =
+                lastVolume;
+
+            volumeSlider.value =
+                Math.round(
+                    lastVolume * 100
+                );
+
+            updateVolumeIcon(
+                lastVolume
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   IMAGE EXPAND
+========================= */
+
+const profileImage =
+    document.getElementById(
+        "profile-image"
+    );
+
+const imageModal =
+    document.getElementById(
+        "image-modal"
+    );
+
+
+profileImage.addEventListener(
+    "click",
+    () => {
+
+        imageModal.classList.add(
+            "active"
+        );
+
+    }
+);
+
+
+imageModal.addEventListener(
+    "click",
+    () => {
+
+        imageModal.classList.remove(
+            "active"
+        );
+
+    }
+);
+
+
+/* =========================
+   ESC
+========================= */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if(event.key === "Escape"){
+
+            imageModal.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================
+   PROFILE VIEW COUNTER
+========================= */
+
+fetch("counter.php")
+
+.then(response => response.json())
+
+.then(data => {
+
+    if(data.success){
+
+        document.getElementById(
+            "profile-views"
+        ).textContent =
+            Number(data.views)
+            .toLocaleString();
+
+    }
+
+    else{
+
+        document.getElementById(
+            "profile-views"
+        ).textContent = "0";
+
+    }
+
+})
+
+.catch(error => {
+
+    console.log(
+        "View counter error:",
+        error
+    );
+
+    document.getElementById(
+        "profile-views"
+    ).textContent = "0";
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
