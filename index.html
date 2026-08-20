@@ -664,6 +664,205 @@ body{
     }
 }
 
+
+/* =========================
+   EXTRA RESPONSIVE FIXES
+   ========================= */
+
+html, body{
+    min-height:100%;
+}
+
+body{
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+.profile{
+    min-height:100svh;
+    height:auto;
+    padding:24px 16px;
+}
+
+.card{
+    width:min(500px, 100%);
+    max-height:none;
+}
+
+.name{
+    overflow-wrap:anywhere;
+}
+
+.bio{
+    overflow-wrap:anywhere;
+}
+
+.socials{
+    flex-wrap:wrap;
+}
+
+@media (max-width: 768px){
+    #enter-screen{
+        padding:20px;
+    }
+
+    #enter-screen h1{
+        font-size:clamp(1.7rem, 7vw, 2.5rem);
+    }
+
+    .profile{
+        align-items:center;
+        padding:24px 14px 90px;
+    }
+
+    .card{
+        padding:32px 20px;
+        width:100%;
+    }
+
+    .avatar{
+        width:130px;
+        height:130px;
+    }
+
+    .name{
+        font-size:clamp(28px, 8vw, 38px);
+        line-height:1.15;
+    }
+
+    .bio{
+        font-size:16px;
+        line-height:1.5;
+    }
+
+    .location{
+        font-size:15px;
+        flex-wrap:wrap;
+    }
+
+    .socials{
+        gap:14px;
+        margin-top:24px;
+    }
+
+    .socials a{
+        width:50px;
+        height:50px;
+        font-size:22px;
+    }
+
+    .volume-control{
+        right:12px;
+        bottom:12px;
+    }
+}
+
+@media (max-width: 480px){
+    .profile{
+        padding:18px 10px 85px;
+    }
+
+    .card{
+        padding:28px 16px;
+        border-radius:18px;
+    }
+
+    .card::before{
+        border-radius:18px;
+    }
+
+    .avatar{
+        width:110px;
+        height:110px;
+    }
+
+    .name{
+        margin-top:16px;
+        font-size:28px;
+    }
+
+    .bio{
+        font-size:14px;
+    }
+
+    .location{
+        font-size:14px;
+    }
+
+    .socials{
+        gap:10px;
+    }
+
+    .socials a{
+        width:46px;
+        height:46px;
+        font-size:20px;
+    }
+
+    .views{
+        margin-top:20px;
+        font-size:13px;
+    }
+
+    .volume-control{
+        right:10px;
+        bottom:10px;
+    }
+
+    #volume-icon{
+        width:42px;
+        height:42px;
+    }
+
+    .volume-slider-box{
+        bottom:48px;
+    }
+
+    .image-modal{
+        padding:12px;
+    }
+
+    .image-modal img{
+        max-width:94vw;
+        max-height:82svh;
+    }
+}
+
+@media (max-height: 650px) and (orientation: landscape){
+    .profile{
+        align-items:flex-start;
+        padding-top:15px;
+        padding-bottom:70px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .avatar{
+        width:90px;
+        height:90px;
+    }
+
+    .name{
+        margin-top:10px;
+        font-size:26px;
+    }
+
+    .bio,
+    .location{
+        margin-top:6px;
+    }
+
+    .socials{
+        margin-top:14px;
+    }
+
+    .views{
+        margin-top:12px;
+    }
+}
+
 </style>
 
 </head>
